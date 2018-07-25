@@ -1,0 +1,40 @@
+# display all PATH components on individual lines
+alias path='echo -e ${PATH//:/\\n}'
+
+# display arbitrary PATH-like string as separated by component
+function pathprint() {
+	echo "${1//:/\\n}"
+}
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# clear screen; <C-L> has been bound for tmux navigation
+alias cls='clear'
+
+# navigation
+alias ..='cd ..'
+alias ...='../..'
+alias ....='../../..'
+
+# for keeping timestamped notes
+alias journal="vim +'normal Go' +'r !date +\"\%Y-\%m-\%d \%H:\%M\"'"
+
+# mini kanban board in vim
+alias vimban="mkdir -p ~/.vimban; vim -O ~/.vimban/{todo,doing,done}"
+
+# do not visualize git dir in top level of tree
+alias tree="tree -I .git"

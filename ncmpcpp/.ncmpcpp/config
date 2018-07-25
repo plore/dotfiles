@@ -1,0 +1,92 @@
+# directories
+ncmpcpp_directory = ~/.ncmpcpp
+mpd_music_dir = ~/Music
+
+# connection settings
+mpd_host = localhost
+mpd_port = 6600
+mpd_connection_timeout = 5
+
+# delays
+mpd_crossfade_time = 5
+playlist_disable_highlight_delay = 5
+message_delay_time = 2
+
+# various display formats
+song_list_format = {%n} {$3%a$9 - }{%t}|{$8%f$9} $R{$7(%l)$9}
+song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
+song_library_format = {%n - }{%t}|{%f}
+song_columns_list_format = (25)[green]{a} (5)[]{n} (35)[]{t|f} (30)[red]{b} (5)[cyan]{lr:Length}
+
+# alternative user interface settings
+user_interface = alternative
+# frame title using fancy glyphs from alternative character set
+alternative_header_first_line_format = $b$0$aqqu$/a$9 {%t}|{%f} $0$atqq$/a$9$/b
+alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+alternative_ui_separator_color = black
+
+# make currently played title bold
+now_playing_prefix = $b
+now_playing_suffix = $/b
+
+# make selection magenta
+selected_item_prefix = $6
+selected_item_suffix = $9
+
+# playlist settings
+playlist_show_remaining_time = yes
+playlist_shorten_total_times = yes
+playlist_separate_albums = yes
+ask_before_clearing_playlists = yes
+playlist_display_mode = columns
+
+# misc. settings
+
+browser_display_mode = classic
+search_engine_display_mode = classic
+playlist_editor_display_mode = classic
+
+discard_colors_if_item_is_selected = no
+
+incremental_seeking = yes
+
+volume_change_step = 1
+
+progressbar_look = "=> "
+progressbar_boldness = yes
+
+media_library_primary_tag = album_artist
+
+default_find_mode = wrapped
+
+header_visibility = yes
+
+cyclic_scrolling = no
+
+display_bitrate = yes
+
+display_remaining_time = no
+
+mouse_support = yes
+mouse_list_scroll_whole_page = no
+
+empty_tag_marker = <empty>
+
+external_editor = vim
+use_console_editor = yes
+
+# further color definitions
+colors_enabled = yes
+empty_tag_color = cyan
+header_window_color = default
+volume_color = default
+state_line_color = default
+state_flags_color = default
+main_window_color = yellow
+color1 = white
+color2 = green
+main_window_highlight_color = yellow
+progressbar_color = black
+progressbar_elapsed_color = green
+statusbar_color = default
+active_column_color = red

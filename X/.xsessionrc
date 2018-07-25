@@ -1,0 +1,4 @@
+# .profile does not get sourced by some display managers such as lightdm
+if [ -f ~/.profile ] && [ -z "$DOT_PROFILE_SOURCED" ]
+	source ~/.profile
+fi
