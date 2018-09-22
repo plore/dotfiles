@@ -25,6 +25,10 @@ if [ -d $ZSH ]; then
 
 	source $ZSH/oh-my-zsh.sh
 
+	# HACK: enable histry-substring-search by explicitly mapping to keys
+	bindkey "^[[A" history-substring-search-up
+	bindkey "^[[B" history-substring-search-down
+
 else
 	#
 	# configure zsh to be workable without oh-my-zsh

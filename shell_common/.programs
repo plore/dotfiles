@@ -1,3 +1,7 @@
 if [ -d ~/perl5 ]; then
 	source ~/perl5/perlbrew/etc/bashrc
 fi
+
+if [ -d ~/anaconda3 ]; then
+	source ~/anaconda3/etc/profile.d/conda.sh
+fi

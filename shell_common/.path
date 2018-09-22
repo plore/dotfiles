@@ -1,9 +1,10 @@
-# prepend to take precedence over system commands
-export PATH=~/anaconda3/bin:$PATH
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ]; then
     export PATH=~/bin:$PATH
 fi
+
+# avoid conflicts with system commands; append
+export PATH=$PATH:~/anaconda3/bin
 
 # no overlap with system commands; append
 export PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-linux

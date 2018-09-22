@@ -159,8 +159,10 @@ def_key "k"
   scroll_up
 
 def_key "l"
-  show_lyrics
   next_column
+
+def_key "L"
+  show_lyrics
 
 #def_key "up"
 #  scroll_up
