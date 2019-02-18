@@ -1,3 +1,7 @@
+" take care of unicode chars below
+set encoding=utf-8
+scriptencoding utf-8
+
 " override system default of 'set compatible' on some systems
 " vi compatibility is not desired
 set nocompatible
@@ -18,8 +22,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'	" better highlighting for modern C++
 Plugin 'bronson/vim-trailing-whitespace'	" I dislike trailing whitespace
 Plugin 'christoomey/vim-tmux-navigator'		" integrate with tmux pane navigation
 Plugin 'scrooloose/nerdtree'				" sidebar explorer
-Plugin 'jceb/vim-orgmode'					" organize my life
-Plugin 'junegunn/goyo'						" distraction-free writing
+Plugin 'junegunn/goyo.vim'					" distraction-free writing
 Plugin 'mikewest/vimroom'					" distraction-free writing
 call vundle#end()
 filetype plugin indent on " reenable filetype-specific plugins and indentation
@@ -37,8 +40,8 @@ set noexpandtab     	" do not expand tabs to spaces
 set listchars=tab:▸␣	" visualization of tabs
 "set list				" make whitespace chars visible
 
-" search
-""""""""
+" search & replace
+""""""""""""""""""
 set incsearch									" move cursor to match while typing
 set hlsearch									" highlight all matches for search term (after pressing enter)
 nnoremap <silent> <Space> :nohlsearch<Return>	" disable search highting by pressing Space
@@ -99,15 +102,27 @@ nnoremap <C-l> <C-W>l
 
 "vim-airline
 """"""""""""
-set laststatus=2					" persistent status line
-let g:airline_powerline_fonts = 1   " enable glyphs
-let g:airline_exlude_preview = 1	" do not affect preview window
+set laststatus=2						" persistent status line
+if &t_Co == 256
+	let g:airline_theme="solarized"
+elseif &t_Co == 16
+	let g:airline_theme="base16_solarized"
+else
+	let g:airline_theme="term_light"	" passable default with few colors
+endif
+let g:airline_powerline_fonts = 1		" use special glyphs
+let g:airline_exlude_preview = 1		" do not affect preview window
 
 ""vim-colors-solarized
 """"""""""""""""""""""
-set background=dark
-colorscheme solarized
-""let g:solarized_contrast="high"
+if &t_Co <= 16
+	colorscheme desert				" much nicer on 8 or 16 color terminals
+else
+	let g:solarized_termcolors=16	" use terminal emulator's colorscheme
+	set background=dark
+	colorscheme solarized
+	"let g:solarized_contrast="high"
+endif
 
 "nerdtree
 """""""""
