@@ -1,12 +1,22 @@
 # set PATH so it includes user's private bin if it exists
+# prepend to take precendence
 if [ -d ~/bin ]; then
     export PATH=~/bin:$PATH
 fi
 
 # avoid conflicts with system commands; append
-export PATH=$PATH:~/anaconda3/bin
 
-# no overlap with system commands; append
-export PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-linux
-export PATH=$PATH:~/.cabal/bin
-export PATH=$PATH:~/.cargo/bin
+# Python
+if [ -d ~/anaconda3 ]; then
+	export PATH=$PATH:~/anaconda3/bin
+fi
+
+# Haskell packages
+if [ -d ~/.cabal ]; then
+	export PATH=$PATH:~/.cabal/bin
+fi
+
+# Rust packages
+if [ -d ~/.cargo ]; then
+	export PATH=$PATH:~/.cargo/bin
+fi
