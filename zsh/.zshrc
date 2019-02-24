@@ -25,7 +25,10 @@ if [ -d $ZSH ]; then
 
 	source $ZSH/oh-my-zsh.sh
 
-	# HACK: enable histry-substring-search by explicitly mapping to keys
+	# unbind v key (set to edit-command-line by plugin vi-mode, confuses me all the time)
+	bindkey -rM vicmd 'v'
+
+	# HACK: enable history-substring-search by explicitly mapping to keys
 	bindkey "^[[A" history-substring-search-up
 	bindkey "^[[B" history-substring-search-down
 
