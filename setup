@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# check if $1 is a valid directory
+
+# strip trailing slash
+set -- "${1%*/}"
+
+in_list=0
+for item in $(ls -d */)
+do
+	# strip trailing slash
+	item="${item%*/}"
+	if [ "$1" == "$item" ]; then
+		in_list=1
+		break
+	fi
+done
+
+if [ "$in_list" == 0 ]; then
+	echo "Directory $1 not found!"
+	exit 1
+fi
+
+# check for stow
+if ! [ -x "$(command -v stow)" ]; then
+	echo "Stow not found"
+	exit 1
+fi
+
+# create symlinks for files under directory $1
+# create folders as necessary, but symlink only the files therein
+stow --no-folding "$1"
+
+# post-install configuration
+case "$1" in
+	mpd)
+		mkdir -p ~/.mpd/playlists ;;
+	vim)
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+		vim +PluginInstall +qall ;;
+	zsh)
+		# download oh-my-zsh install script, printing to stdout, and execute with zsh
+		wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | zsh
+		# restore our .zshrc
+		mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc ;;
+	*) ;;
+esac
