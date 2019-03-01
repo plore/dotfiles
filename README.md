@@ -2,7 +2,7 @@
 These are my dotfiles. Some of them might work for you, too -- be careful and think twice before adopting them wholesale though. Also, these configuration files might not work equally well with every version of a program or on every system.
 
 ## Installation
-I use [GNU Stow](www.gnu.org/software/stow) to manage my dotfiles.
+I use [GNU Stow](https://www.gnu.org/software/stow) to manage my dotfiles.
 To install:
 
 0. Backup existing dotfiles from your home directory.
@@ -18,7 +18,7 @@ $ ./setup vim
 ```
 
 ## Acknowledgements
-Thanks to the creators of [GNU Stow](www.gnu.org/software/stow), and thanks to all creators of dotfiles who publish their setup for others' inspiration.
+Thanks to the creators of [GNU Stow](https://www.gnu.org/software/stow), and thanks to all creators of dotfiles who publish their setup for others' inspiration.
 
 ## License
 All files in this repository are released under the [CC0](https://creativecommons.org/publicdomain/zero/1.0) license.
