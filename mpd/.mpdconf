@@ -18,4 +18,3 @@ audio_output {
 
 replaygain				"album"
 filesystem_charset		"UTF-8"
-id3v1_encoding			"UTF-8"
