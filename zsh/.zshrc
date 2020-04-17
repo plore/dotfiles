@@ -86,9 +86,9 @@ setopt GLOB_COMPLETE
 # do not notify on completed background job (can mess up editor view)
 setopt NO_NOTIFY
 
-# additional environment variables
-if [ -f ~/.env ]; then
-	source ~/.env
+# custom environment variables
+if [ -f ~/.env_additional ]; then
+	source ~/.env_additional
 fi
 
 autoload -Uz compinit promptinit
