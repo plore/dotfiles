@@ -96,8 +96,15 @@ compinit
 promptinit
 
 # completion style settings
-# NOTE: LS_COLORS has to be defined before this
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+if [ -z $LS_COLORS ]
+then
+	# on non-GNU systems such as macOS
+	unset LSCOLORS	# more colorful when terminal colors are set to solarized
+	export CLICOLOR=YES
+	zstyle ':completion:*' list-colors ''
+else
+	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+fi
 zstyle ':completion:*' menu select
 
 # additional aliases
