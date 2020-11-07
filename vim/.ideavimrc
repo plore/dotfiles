@@ -1,0 +1,7 @@
+source ~/.vimrc
+
+if $TERM_PROGRAM != iTerm.app
+	colorscheme desert
+fi
+
+set surround

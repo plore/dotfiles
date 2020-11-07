@@ -24,6 +24,7 @@ Plugin 'christoomey/vim-tmux-navigator'		" integrate with tmux pane navigation
 Plugin 'scrooloose/nerdtree'				" sidebar explorer
 Plugin 'junegunn/goyo.vim'					" distraction-free writing
 Plugin 'mikewest/vimroom'					" distraction-free writing
+Plugin 'tpope/vim-surround'					" surround tokens with parentheses etc.
 call vundle#end()
 filetype plugin indent on " reenable filetype-specific plugins and indentation
 
