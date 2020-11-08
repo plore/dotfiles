@@ -9,7 +9,7 @@ set nocompatible
 """""""""
 " plugins
 """""""""
-filetype off    " temporarily turn of filetype distinction
+filetype off    " temporarily turn off filetype distinction
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'					" Plugin manager
@@ -45,7 +45,8 @@ set listchars=tab:▸␣	" visualization of tabs
 """"""""""""""""""
 set incsearch									" move cursor to match while typing
 set hlsearch									" highlight all matches for search term (after pressing enter)
-nnoremap <silent> <Space> :nohlsearch<Return>	" disable search highting by pressing Space
+" disable search highlighting by pressing Space
+nnoremap <silent> <Space> :nohlsearch<CR>
 set ignorecase									" ignore case
 set smartcase									" but not if uppercase letter was typed
 
@@ -92,8 +93,10 @@ nnoremap <C-l> <C-W>l
 "set foldmethod=indent	" force myself to indent properly in any language
 "set foldnestmax=1		" force myself to keep fold contents small so that only one level is needed
 "set foldclose=all		" auto close fold when moving out of it
-"nnoremap zC zM			" close all folds rather than just the one (since foldnestmax=1) level under cursor
-"nnoremap zO zR			" open all folds
+"" close all folds rather than just the one (since foldnestmax=1) level under cursor
+"nnoremap zC zM"
+"" open all folds
+"nnoremap zO zR
 "au BufWinLeave *.* mkview				" save folds; avoid error on opening [No File] by requiring dot in filename
 "au BufWinEnter *.* silent loadview		" restore folds on opening
 
@@ -127,6 +130,7 @@ endif
 
 "nerdtree
 """""""""
-nnoremap <C-e> :NERDTreeToggle<CR>	" e as in explorer(?)
+" e as in explorer(?)
+nnoremap <C-e> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1			" show hidden files by default
 
