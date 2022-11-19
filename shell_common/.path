@@ -6,6 +6,11 @@ fi
 
 # avoid conflicts with system commands; append
 
+#
+if [ -x "$(command -v brew)" ]; then
+	export PATH=$PATH:/usr/local/sbin
+fi
+
 # Python
 if [ -d ~/anaconda3 ]; then
 	export PATH=$PATH:~/anaconda3/bin
@@ -20,3 +25,4 @@ fi
 if [ -d ~/.cargo ]; then
 	export PATH=$PATH:~/.cargo/bin
 fi
+
