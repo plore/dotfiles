@@ -1,10 +1,12 @@
-[user]
-	name = Peter Lorenz
-	email = peter.lorenz123@gmx.de
 [push]
 	default = simple
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [alias]
 	hist = log --all --decorate --graph --full-history --color --format=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset'
 	histtimes = log --all --decorate --graph --full-history --color --format=format:'%C(yellow)%h%Creset - %C(auto)%ai%  %an - %s%Creset %C(auto)%d%Creset'
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
