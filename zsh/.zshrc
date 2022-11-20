@@ -95,16 +95,20 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-# completion style settings
-if [ -z $LS_COLORS ]
+# ls and completion style
+if [ -x "$(command -v dircolors)" ]
 then
-	# on non-GNU systems such as macOS
-	unset LSCOLORS	# more colorful when terminal colors are set to solarized
-	export CLICOLOR=YES
-	zstyle ':completion:*' list-colors ''
+	unset LS_COLORS
+	DIRCOLORS=dircolors
 else
-	zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+	# we're most likely on macOS and want to use GNU ls
+	unset LSCOLORS			# remove settings for BSD ls
+	export CLICOLOR=1
+	DIRCOLORS=gdircolors
 fi
+eval $($DIRCOLORS -b ~/.dircolors)
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
 # additional aliases
