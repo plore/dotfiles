@@ -8,6 +8,6 @@ fi
 
 if [ -x "$(command -v brew)" ]; then
 	if brew ls --versions asdf > /dev/null; then
-		source $(brew --prefix asdf)/asdf.sh
+		source $(brew --prefix asdf)/libexec/asdf.sh
 	fi
 fi
