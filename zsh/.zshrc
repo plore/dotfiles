@@ -120,3 +120,7 @@ fi
 if [ -f ~/.programs ]; then
 	source ~/.programs
 fi
+
+if [ -f ~/.path ]; then
+	source ~/.path
+fi
