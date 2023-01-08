@@ -14,9 +14,6 @@ if [ -d $ZSH ]; then
 	# how often to auto-update
 	export UPDATE_ZSH_DAYS=13
 
-	# command auto-correction
-	ENABLE_CORRECTION="true"
-
 	# 'history' command output format
 	HIST_STAMPS="yyyy-mm-dd"
 
@@ -40,9 +37,6 @@ else
 	# lets names of parameters set to absolute dirs be used as a stand-in for those dirs at the
 	# prompt, potentially saving prompt space (e.g. by using ~ instead of /home/<username>)
 	setopt AUTO_NAME_DIRS
-
-	# try to correct command spelling mistakes
-	setopt CORRECT
 
 	# prompts
 	export PS1="%n@%M %~%# "
@@ -79,6 +73,12 @@ fi
 #
 # additional configuration
 #
+
+
+# correct spelling mistakes for commands but not arguments
+unsetopt correct_all
+setopt correct
+
 
 # cycle through possible completions instead of expanding with all completions at once
 setopt GLOB_COMPLETE
