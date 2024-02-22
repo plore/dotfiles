@@ -18,7 +18,7 @@ if [ -d $ZSH ]; then
 	HIST_STAMPS="yyyy-mm-dd"
 
 	# oh-my-zsh plugins to load
-	plugins=(git vi-mode history-substring-search)
+	plugins=(git bundler vi-mode history-substring-search colored-man-pages jsontools)
 
 	source $ZSH/oh-my-zsh.sh
 
