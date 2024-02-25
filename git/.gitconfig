@@ -7,6 +7,13 @@
 [alias]
 	hist = log --all --decorate --graph --full-history --color --format=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset'
 	histtimes = log --all --decorate --graph --full-history --color --format=format:'%C(yellow)%h%Creset - %C(auto)%ai%  %an - %s%Creset %C(auto)%d%Creset'
+	blist = "for-each-ref \
+		--sort=-committerdate \
+		--color \
+		--format='%(committerdate:short)  %(color:magenta)%(align:width=11)+/- %(ahead-behind:main)%(end) %(color:green)%(refname:short)%(color:reset) -> %(color:red)%(upstream:short)%(color:reset)' \
+		refs/heads \
+		"
+	dummycommit = commit --allow-empty -m 'Dummy commit'
 [pull]
 	rebase = true
 [init]
