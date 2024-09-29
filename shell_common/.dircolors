@@ -207,10 +207,19 @@ EXEC 01;32
 .oga 00;36
 .spx 00;36
 .xspf 00;36
-# document formats
+# non-text document
 .pdf 38;5;142
-.txt 38;5;40
-.tex 38;5;40
+## text document - normal
+#.csv 38;5;40
+#.json 38;5;40
+#.jsonl 38;5;40
+#.txt 38;5;40
+#.tex 38;5;40
+# web document - slight emphasis
+.html 38;5;74
+# binary storage
+.parquet 38;5;58
+.pickle 38;5;58
 
 # unimportant" files as logs and backups (base01)
 .log        00;38;5;240
