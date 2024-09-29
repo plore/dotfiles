@@ -1,0 +1,13 @@
+# display arbitrary PATH-like string as separated by component
+function pathprint() {
+	echo "${1//:/\\n}"
+}
+
+# execute rspec tests one by one to detect incomplete setup in isolation
+function rspock() {
+	for file in $(find . -name "*_spec.rb")
+	do
+		echo "$file"
+		bundle exec rspec "$file" --format p | grep -Ev "Finished in|Randomized|Coverage report|^\s*$|^\.+|^\.+$$"
+	done
+}

@@ -1,11 +1,6 @@
 # display all PATH components on individual lines
 alias path='echo -e ${PATH//:/\\n}'
 
-# display arbitrary PATH-like string as separated by component
-function pathprint() {
-	echo "${1//:/\\n}"
-}
-
 # enable color support of ls and also add handy aliases
 if [ -x "$(command -v dircolors)" ]; then
     alias ls='ls --color=auto'
@@ -38,3 +33,9 @@ alias vimban="mkdir -p ~/.vimban; vim -O ~/.vimban/{todo,doing,done}"
 
 # do not visualize git dir in top level of tree
 alias tree="tree -I .git"
+
+# common case conversions
+alias lowercase="tr '[:upper:]' '[:lower:]'"
+alias uppercase="tr '[:lower:]' '[:upper:]'"
+
+alias aws-logmein="~/Code/ivx/aws-forecast/create_sagemaker_session.sh"
