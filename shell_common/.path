@@ -1,30 +1,33 @@
 # set PATH so it includes user's private bin if it exists
 # prepend to take precendence
-if [ -d ~/bin ]; then
-    export PATH=~/bin:$PATH
+
+if [ -x "$(command -v brew)" ]; then
+	if brew ls --versions postgresql@16 > /dev/null; then
+		export PATH=$(brew --prefix postgresql@16)/bin:$PATH
+	fi
+	if brew ls --versions coreutils > /dev/null; then
+		export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+	fi
 fi
+
 if [ -d ~/.local/bin ]; then
     export PATH=~/.local/bin:$PATH
 fi
 
-# avoid conflicts with system commands; append
-
-#
-if [ -x "$(command -v brew)" ]; then
-	export PATH=$PATH:/usr/local/sbin
+if [ -d ~/bin ]; then
+    export PATH=~/bin:$PATH
 fi
 
-# Python
+# avoid conflicts with system commands; append
+
 if [ -d ~/anaconda3 ]; then
 	export PATH=$PATH:~/anaconda3/bin
 fi
 
-# Haskell packages
 if [ -d ~/.cabal ]; then
 	export PATH=$PATH:~/.cabal/bin
 fi
 
-# Rust packages
 if [ -d ~/.cargo ]; then
 	export PATH=$PATH:~/.cargo/bin
 fi

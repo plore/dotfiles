@@ -1,3 +1,8 @@
+# get executables right before their configuration
+if [ -f ~/.path ]; then
+	source ~/.path
+fi
+
 export ZSH=~/.oh-my-zsh	# path to oh-my-zsh installation
 
 if [ -d $ZSH ]; then
@@ -74,11 +79,9 @@ fi
 # additional configuration
 #
 
-
 # correct spelling mistakes for commands but not arguments
 unsetopt correct_all
 setopt correct
-
 
 # cycle through possible completions instead of expanding with all completions at once
 setopt GLOB_COMPLETE
@@ -119,8 +122,4 @@ fi
 # additional options for external programs
 if [ -f ~/.programs ]; then
 	source ~/.programs
-fi
-
-if [ -f ~/.path ]; then
-	source ~/.path
 fi
