@@ -10,20 +10,25 @@ if [ -d $ZSH ]; then
 	# oh-my-zsh configuration
 	#
 
-	# oh-my-zsh theme
 	ZSH_THEME="agnoster"
 
-	# case-sensitive completion
 	CASE_SENSITIVE="true"
 
-	# how often to auto-update
 	export UPDATE_ZSH_DAYS=13
 
 	# 'history' command output format
 	HIST_STAMPS="yyyy-mm-dd"
 
-	# oh-my-zsh plugins to load
-	plugins=(git bundler vi-mode history-substring-search colored-man-pages jsontools)
+	plugins=(
+		asdf
+		bundler
+		colored-man-pages
+		docker-compose
+		git
+		history-substring-search
+		jsontools
+		vi-mode
+	)
 
 	source $ZSH/oh-my-zsh.sh
 
