@@ -16,8 +16,9 @@ if [ -d $ZSH ]; then
 
 	export UPDATE_ZSH_DAYS=13
 
-	# 'history' command output format
 	HIST_STAMPS="yyyy-mm-dd"
+	HISTSIZE=100000
+	SAVEHIST=$HISTSIZE
 
 	plugins=(
 		asdf
