@@ -8,6 +8,42 @@ function rspock() {
 	for file in $(find . -name "*_spec.rb")
 	do
 		echo "$file"
-		bundle exec rspec "$file" --format p | grep -Ev "Finished in|Randomized|Coverage report|^\s*$|^\.+|^\.+$$"
+		bundle exec rspec "$file" --format p | grep -Ev "Finished in|Randomized|Coverage|^\s*$|^\.+|^\.+$$"
 	done
+}
+
+function jsonkeys() {
+	jq -r 'paths(scalars) | join(".")' $1
+}
+
+function jsommarize() {
+	local arlen="${2:-3}"
+	jq "walk(if type == \"array\" then .[:$arlen]+[\"<...more...>\"] else . end)" $1
+}
+
+function jang() {
+	pushd ~/Code/pytools > /dev/null
+	poetry run jupyter lab notebooks/template.ipynb
+	popd > /dev/null
+}
+
+function plot_graph() {
+	work_dir=$(pwd)
+	pushd ~/Code/pytools > /dev/null
+	poetry run python scripts/graph.py "$work_dir/$@"
+	popd > /dev/null
+}
+
+function plot_hist() {
+	work_dir=$(pwd)
+	pushd ~/Code/pytools > /dev/null
+	poetry run python scripts/dist.py "$work_dir/$@"
+	popd > /dev/null
+}
+
+function autoplot() {
+	work_dir=$(pwd)
+	pushd ~/Code/pytools > /dev/null
+	poetry run python scripts/autoplot.py "$work_dir/$@"
+	popd > /dev/null
 }
