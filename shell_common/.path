@@ -8,6 +8,10 @@ if [ -x "$(command -v brew)" ]; then
 	if brew ls --versions coreutils > /dev/null; then
 		export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 	fi
+	if brew ls --versions asdf > /dev/null; then
+		export ASDF_DATA_DIR=~/.asdf
+		export PATH="$ASDF_DATA_DIR/shims:$PATH"
+	fi
 fi
 
 if [ -d ~/.local/bin ]; then
