@@ -104,18 +104,18 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-# ls and completion style
-if [ -x "$(command -v dircolors)" ]
-then
-	unset LS_COLORS
+# define LS_COLORS via dircolors
+if [ -x "$(command -v dircolors)" ]; then
 	DIRCOLORS=dircolors
-else
-	# we're most likely on macOS and want to use GNU ls
-	unset LSCOLORS			# remove settings for BSD ls
-	export CLICOLOR=1
+elif [ -x "$(command -v gdircolors)" ]; then
 	DIRCOLORS=gdircolors
 fi
-eval $($DIRCOLORS -b ~/.dircolors)
+
+if [ -r ~/.dircolors ]; then
+	unset LS_COLORS			# predefined colors on non-BSD
+	unset LSCOLORS			# BSD
+    eval "$($DIRCOLORS -b ~/.dircolors)" # sets LS_COLORS
+fi
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
