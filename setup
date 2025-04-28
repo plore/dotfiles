@@ -27,9 +27,29 @@ if ! [ -x "$(command -v stow)" ]; then
 	exit 1
 fi
 
+if [ ! -z ${XDG_CONFIG_HOME} ];then
+	XDG_TARGET=$XDG_CONFIG_HOME
+else
+	XDG_TARGET=$HOME/.config
+fi
+
 # create symlinks for files under directory $1
 # create folders as necessary, but symlink only the files therein
-stow --no-folding "$1"
+if [ "$1" == "vim" ];then
+	#mkdir $XDG_TARGET/vim
+	#stow --target=$XDG_TARGET/vim vim
+	stow --no-folding "$1"
+elif [ "$1" == "git" ];then
+	mkdir $XDG_TARGET/git
+	stow --target=$XDG_TARGET/git git
+	#ln -s $HOME/dotfiles/git/config $XDG_TARGET/git/config
+	#ln -s $HOME/dotfiles/git/gitignore_global $XDG_TARGET/git/.gitignore_global
+elif [ "$1" == "zsh" ];then
+	mkdir $XDG_TARGET/zsh
+	stow --no-folding --no--target=XDG_TARGET/zsh shell_common
+else
+	stow --no-folding "$1"
+fi
 
 # post-install configuration
 case "$1" in

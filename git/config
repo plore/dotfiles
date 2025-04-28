@@ -2,7 +2,7 @@
 	default = simple
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 	autocrlf = input
 [alias]
 	hist = log --all --decorate --graph --full-history --color --format=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset'
@@ -31,4 +31,4 @@
 [includeIf "gitdir:~/Code/Other/**"]
 	path = ~/Code/Other/.gitconfig
 [gpg "ssh"]
-	allowedSignersFile = ~/.git_allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers
